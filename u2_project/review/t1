@@ -1,0 +1,44 @@
+import re, time
+
+def add(x,y):
+    return x+y
+
+def sub(x,y):
+    return x-y
+
+def a(x,y,z):
+    pass
+
+
+def b(m,n,*args,**kwargs):
+    pass
+
+def logger(fn):
+    def inner(*args, **kwargs):
+        print("call function {}.x={},y={}".format(fn.__name__,*args, **kwargs))
+        ret = fn(*args, **kwargs)
+        return ret
+    return inner
+
+def timer(fn):
+    start = time.time()
+    def inner(*args, **kwargs):
+        ret = fn(*args, **kwargs)
+        print(time.time()-start)
+        return ret
+    return inner
+
+@timer
+def add(x, y):
+    time.sleep(2)
+    return x+y
+print(add(4,5))
+
+
+# def timer(fn):
+#     def inner(*args, **kwargs):
+#         ret = fn(*args, **kwargs)
+#         return ret
+#     return inner
+
+
