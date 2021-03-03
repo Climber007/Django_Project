@@ -1,0 +1,12 @@
+# from redis import StrictRedis, ConnectionPool
+#
+# redis_url = "redis://root@192.168.0.101:6379/15"
+# pool = ConnectionPool.from_url(redis_url, decode_responses=True)
+# r = StrictRedis(connection_pool=pool)
+
+import pymongo
+
+client = pymongo.MongoClient(URL)
+db = client[MONGO_DB]
+
+db[MONGO_TABLE].insert(result)
